@@ -2,7 +2,7 @@
 # This part is the one that would change the most depending on the data available
 
 # Read the excel file with the data on claims and exposure
-Data <- read.xlsx("C:/Users/tmarques011/Documents/Mestrado/Dissertation/R/Data_MFW.xlsx")
+Data <- read.xlsx("C:/filepath")
 Data <- as.data.frame(Data) #converts to a data frame
 is.data.frame(Data) #makes sure it works and this is a data frame
 
@@ -205,7 +205,7 @@ Prior_Mom_DV_2 <- Prior_Mom(Prior_Param_DV_2,PJ_2)
 # Read and store the curve into a variable Data_RFR
 # Determine the cash flows for each case: RBNS, IBNR and CBNI
 # For this case we have use the prior and posterior parameters estimated using De Vylder's iterative procedure
-Data_RFR <- read.xlsx("C:/Users/tmarques011/Documents/Mestrado/Dissertation/R/RFR+VA 31-12-2017.xlsx")
+Data_RFR <- read.xlsx("C:/filepath.xlsx")
 RFR <- Data_RFR[,2]
 
 Discount_factor <- Discount(RFR)
