@@ -97,21 +97,6 @@ LogLik_1 <- function(alpha,beta){
 }
 
 
-# Not working for this data!
-# LogLik_2 <- function(alpha,beta){
-#   J = nrow(Cum_Njd_2)
-#   LOG = 0
-#   for(j in 1:J){
-#     LOG_j = alpha * log (beta/(beta+Pj_2[[j,1]]*sum(PId_DF_2[1:(J-j+1)])))
-#     for(n in 1: Cum_Njd_2[[j,(J-j+1)]]){
-#       LOG_j = LOG_j + log((alpha+n-1)/(beta+Pj_2[[j,1]]*sum(PId_DF_2[1:(J-j+1)])))
-#     }
-#     LOG = LOG + LOG_j
-#   }
-#   return(-LOG)
-# }
-
-
 
 # 3rd approach De Vylder's iterative procedure
 # For this approach we assume that theta follows a Gamma distribution with parameters alpha and beta
