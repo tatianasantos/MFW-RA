@@ -121,6 +121,24 @@ Summary_mean <- data.frame("RBNS" = c(CF_RBNS_DISC_1, CF_RBNS_DISC_2),
                            "CBNI" = c(CF_CBNI_DISC_1, CF_CBNI_DISC_2))
 Summary_mean <- Summary_mean %>% mutate(IBNS = RBNS + IBNR)
 
+#Data frame with the elements of the Risk Adjustment separately: SD adjustment and skewness adjustment
+Summary_85_CP <- data.frame("Element"=c("SD_1", "Skewness_1","SD_2", "Skewness_2"),
+                            "RBNS"=c(qnorm(0.85)*sqrt(MOM_RBNS_CP_1[2]),
+                                     ((qnorm(0.85)^2-1)*MOM_RBNS_CP_1[3])/(6*MOM_RBNS_CP_1[2]),
+                                     qnorm(0.85)*sqrt(MOM_RBNS_CP_2[2]),
+                                     ((qnorm(0.85)^2-1)*MOM_RBNS_CP_2[3])/(6*MOM_RBNS_CP_2[2])),
+                            "IBNR"=c(qnorm(0.85)*sqrt(MOM_IBNR_CP_1[2]),
+                                     ((qnorm(0.85)^2-1)*MOM_IBNR_CP_1[3])/(6*MOM_IBNR_CP_1[2]),
+                                     qnorm(0.85)*sqrt(MOM_IBNR_CP_2[2]),
+                                     ((qnorm(0.85)^2-1)*MOM_IBNR_CP_2[3])/(6*MOM_IBNR_CP_2[2])),
+                            "IBNS"=c(qnorm(0.85)*sqrt(MOM_RBNS_CP_1[2]+MOM_IBNR_CP_1[2]),
+                                     ((qnorm(0.85)^2-1)*(MOM_RBNS_CP_1[3]+MOM_IBNR_CP_1[3]))/(6*(MOM_RBNS_CP_1[2]+MOM_IBNR_CP_1[2])),
+                                     qnorm(0.85)*sqrt(MOM_RBNS_CP_2[2]+MOM_IBNR_CP_2[2]),
+                                     ((qnorm(0.85)^2-1)*(MOM_RBNS_CP_2[3]+MOM_IBNR_CP_2[3]))/(6*(MOM_RBNS_CP_2[2]+MOM_IBNR_CP_2[2]))),
+                            "CBNI"=c(qnorm(0.85)*sqrt(MOM_CBNI_CP_1[2]),
+                                     ((qnorm(0.85)^2-1)*MOM_CBNI_CP_1[3])/(6*MOM_CBNI_CP_1[2]),
+                                     qnorm(0.85)*sqrt(MOM_CBNI_CP_2[2]),
+                                     ((qnorm(0.85)^2-1)*MOM_CBNI_CP_2[3])/(6*MOM_CBNI_CP_2[2])))
  
 # Risk group 5
 # Data frame with the RA for different confidence levels and different assumptions: CP, Mult, Dir
